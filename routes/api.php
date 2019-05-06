@@ -19,13 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/employee/{id?}', function (String $id = null, Request $request) {
+Route::get('/employee', function (Request $request) {
     $controller = new EmployeeController();
-    if ($id) {
-        return $controller->read($id, $request);
-    } else {
-        return $controller->list($request);
-    }
+    return $controller->list($request);
+});
+
+Route::get('/employee/{id}', function ($id, Request $request) {
+    $controller = new EmployeeController();
+    return $controller->read($id, $request);
 });
 
 Route::post('/employee', function (Request $request) {
