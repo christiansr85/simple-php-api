@@ -11,13 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // User::truncate();
-        // User::create([
-        //     'email' => 'admin@admin.com',
-        //     'password' => Hash::make('adminadmin'),
-        //     'name' => 'Administrator',
-        // ]);
-
         DB::collection('users')->delete();
 
         DB::collection('users')->insert($data = [
